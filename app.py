@@ -41,6 +41,19 @@ def load_user(user_id):
 def home():
     return render_template("index.html")
 
+@app.route("/login-page")
+def login_page():
+    return render_template("login.html")
+
+@app.route("/register-page")
+def register_page():
+    return render_template("register.html")
+
+@app.route("/dashboard")
+@login_required
+def dashboard():
+    return render_template("dashboard.html")
+
 @app.route("/register", methods=["POST"])
 def register():
     data = request.json
@@ -122,6 +135,7 @@ def delete_book(book_id):
         
 if __name__ == "__main__":
     app.run(debug=True)    
+
 
 
 
