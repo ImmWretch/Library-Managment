@@ -12,11 +12,11 @@ login_manager.init_app(app)
 
 def connect():
     return mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        password = "rasengan",
-        database = "library"
-        )
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME")
+    )
 
 class User(UserMixin):
     def __init__(self, id, username, email, password_hash):
@@ -117,4 +117,5 @@ def delete_book(book_id):
         
 if __name__ == "__main__":
     app.run(debug=True)    
+
 
