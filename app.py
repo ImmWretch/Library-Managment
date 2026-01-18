@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 
-login_manager = LoginManager
+login_manager = LoginManager()
 login_manager.init_app(app)
 
 def connect():
@@ -117,5 +117,6 @@ def delete_book(book_id):
         
 if __name__ == "__main__":
     app.run(debug=True)    
+
 
 
