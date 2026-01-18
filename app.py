@@ -36,6 +36,13 @@ def load_user(user_id):
         return User(**user)
     return None
 
+@app.route("/")
+def index():
+    return {
+        "status": "ok",
+        "message": "Library Management API is running"
+    }
+
 @app.route("/register", methods=["POST"])
 def register():
     data = request.json
@@ -117,6 +124,7 @@ def delete_book(book_id):
         
 if __name__ == "__main__":
     app.run(debug=True)    
+
 
 
 
