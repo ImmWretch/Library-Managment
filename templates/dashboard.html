@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Library</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body onload="loadBooks()">
+
+<h2>Your Library</h2>
+
+<button onclick="logout()">Logout</button>
+
+<hr>
+
+<h3>Add Book</h3>
+<div class="form">
+    <input id="title" placeholder="Title">
+    <input id="author" placeholder="Author">
+    <input id="year" placeholder="Year">
+    <input id="genre" placeholder="Genre">
+    <button onclick="addBook()">Add Book</button>
+</div>
+
+<hr>
+
+<h3>Your Books</h3>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="books"></tbody>
+</table>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
