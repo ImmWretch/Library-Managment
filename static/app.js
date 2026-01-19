@@ -78,9 +78,11 @@ async function register() {
         body: JSON.stringify({ username, email, password })
     });
 
+    const data = await res.json();
+
     if (res.ok) {
         window.location.href = "/login-page";
     } else {
-        document.getElementById("error").innerText = "Registration failed";
+        document.getElementById("error").innerText = data.error || "Registration failed";
     }
 }
