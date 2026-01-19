@@ -64,7 +64,7 @@ def register():
     try:
         cur.execute("INSERT INTO users (username, email, password_hash) VALUES (%s, %s, %s)", (data["username"], data["email"], password_hash))
         con.commit()
-    except mysql.connector.IntegrityError:
+    except IntegrityError:
         return jsonify({"error": "User already exists"}), 400
     finally:
         con.close()
@@ -136,6 +136,7 @@ def delete_book(book_id):
         
 if __name__ == "__main__":
     app.run(debug=True)    
+
 
 
 
