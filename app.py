@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 from flask_login import (LoginManager, UserMixin, login_user, logout_user, login_required, current_user)
 from werkzeug.security import generate_password_hash, check_password_hash
 import mysql.connector
+from mysql.connector import IntegrityError
 import os
 
 app = Flask(__name__)
@@ -135,6 +136,7 @@ def delete_book(book_id):
         
 if __name__ == "__main__":
     app.run(debug=True)    
+
 
 
 
